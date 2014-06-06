@@ -1,22 +1,14 @@
-musicbox-webclient
-==================
+mopidy-music
+============
+This is a Mopidy Webclient based on https://github.com/woutervanwijk/Mopidy-Webclient
 
-Just a visual reworking of Wouter van Wyks PiMusicbox webclient for MPD, basically just moving a few elements around using jquery appendTo so you get the best layout in both large screen browsers and mobile devices, css tweaks for a darker theme..
-
-Added from original webclient
-- independently scrollable playlist and song queue divs
-- volume slider movies to header on small screens for easy access
-- now playing moves to side panel on large view and removed from menu as redundant
-- play controls now always show in footer on big screen, again for easy access
-- slightly cleaned up queue layout, just personal but breaking into albums confused me, also no need to show album for each song on small viewspace. Also I made it easier to see which is the artist and album etc, used to be confusing
-- added right side settings panel in header to free up some space from Now Playing panel (Work In Progress!)
-- colour toggles on random/repeat etc to see when on 
+Check out the screenshots.
 
 
-To Do
-- I have hardcoded links to my other Musicboxs' on the same network so I can easily switch between them, this should be configurable through settings ie can add the IP / name in settings 
-- default open current playlist when open on new device
-- get Random button to not change tracks when set to on
+Please consider it as highly experimental: I added/changed some things which i didn't like on the original client.
+There is no "real" new code from me.
+
+If i find time, i will write an own client.
 
 
-Probably broke some other things while tinkering..
+Note: it is only tested with mopidy 0.16.1
