@@ -18,5 +18,8 @@ To Do
 - default open current playlist when open on new device
 - get Random button to not change tracks when set to on
 
+Need to create these symlinks to make things work after replacing the webclient
+	ln -s /boot/config/radiostations.js /opt/webclient/js/radiostations.js
+	ln -s /usr/local/lib/python2.7/dist-packages/mopidy/http/data /opt/webclient/mopidy
 
 Probably broke some other things while tinkering..
