@@ -1,0 +1,5 @@
+missing files are js/radiostations.js and mopidy which are both symlinks that need to be created
+
+ln -s /boot/config/radiostations.js /opt/webclient/js/radiostations.js
+
+ln -s /usr/local/lib/python2.7/dist-packages/mopidy/http/data /opt/webclient/mopidy

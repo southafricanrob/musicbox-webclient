@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/jquery.mobile.flatui-light.css" title="light"/>
     <script type='application/javascript' src='js/fastclick.js'></script>
     <script>
      //configuration
@@ -23,6 +24,66 @@
         window.addEventListener('load', function () {
             new FastClick(document.body);
         }, false);
+        
+
+// *** robcode css switch javascript***
+        
+var style_cookie_name = "style" ;
+var style_cookie_duration = 30 ;
+
+
+function switch_style ( css_title )
+{
+// You may use this script on your site free of charge provided
+// you do not remove this notice or the URL below. Script from
+// http://www.thesitewizard.com/javascripts/change-style-sheets.shtml
+  var i, link_tag ;
+  for (i = 0, link_tag = document.getElementsByTagName("link") ;
+    i < link_tag.length ; i++ ) {
+    if ((link_tag[i].rel.indexOf( "stylesheet" ) != -1) &&
+      link_tag[i].title) {
+      link_tag[i].disabled = true ;
+      if (link_tag[i].title == css_title) {
+        link_tag[i].disabled = false ;
+      }
+    }
+    set_cookie( style_cookie_name, css_title,
+      style_cookie_duration );
+  }
+}
+function set_style_from_cookie()
+{
+  var css_title = get_cookie( style_cookie_name );
+  if (css_title.length) {
+    switch_style( css_title );
+  }
+}
+function set_cookie ( cookie_name, cookie_value,
+    lifespan_in_days, valid_domain )
+{
+    // http://www.thesitewizard.com/javascripts/cookies.shtml
+    var domain_string = valid_domain ?
+                       ("; domain=" + valid_domain) : '' ;
+    document.cookie = cookie_name +
+                       "=" + encodeURIComponent( cookie_value ) +
+                       "; max-age=" + 60 * 60 *
+                       24 * lifespan_in_days +
+                       "; path=/" + domain_string ;
+}
+function get_cookie ( cookie_name )
+{
+    // http://www.thesitewizard.com/javascripts/cookies.shtml
+    var cookie_string = document.cookie ;
+    if (cookie_string.length != 0) {
+        var cookie_value = cookie_string.match (
+                        '(^|;)[\s]*' +
+                        cookie_name +
+                        '=([^;]*)' );
+        return decodeURIComponent ( cookie_value[2] ) ;
+    }
+    return '' ;
+}
+        
     </script>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <link rel="apple-touch-startup-image" href="images/startup.png">
@@ -50,6 +111,8 @@
     <meta name="author" content="Wouter van Wijk">
     <meta name="copyright" content="(c) 2012-2013 Wouter van Wijk"/>
     <link href="css/webclient.css" rel="stylesheet">
+    <link rel="alternate stylesheet" type="text/css" href="css/webclient-light.css" title="light"/>
+
     <link href="css/jquery.mobile.iscrollview.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -164,6 +227,16 @@
       </ul>
     <br>
     	<a href="#"  data-role="button" data-rel="close" id="" data-transition="slidedown" data-theme="b">Close</a>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+<form>
+<input type="submit" onclick="switch_style('dark');return false;" name="theme" value="Dark Theme" id="dark">
+<input type="submit" onclick="switch_style('light');return false;switch_style('light2');return false" name="theme" value="Light Theme" id="light">
+</form>
            
 </div>
 <!------------ /right hand settings panel ------------>
